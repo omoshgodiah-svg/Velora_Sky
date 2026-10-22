@@ -1,0 +1,108 @@
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   background: grey;
+ }
+ .favorites{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+ }
+
+ .text {
+   width: 90%;
+   max-width: 400px;
+ }
+
+ .text h1 {
+   color: yellowgreen;
+   text-align: center !important;
+   font-size: 3.5rem;
+   margin-bottom: 15px;
+   justify-content: center !important;
+   
+ }
+
+ .text p {
+   color: blue;
+   text-align: center !important;
+   margin-top: 10px;
+   margin-bottom: 15px;
+   font-size: 2rem;
+ }
+
+ .artist-list {
+   list-style: none;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: repeat(3, auto);
+   flex-direction: column;
+   gap: 15px;
+   padding: 0;
+   max-width: 500px;
+   
+ }
+ .artist-list a {
+   display: block;
+   padding: 15px;
+   background: #1f1f1f;
+   color: white;
+   text-decoration: none;
+   border-radius: 10px;
+   transition: 0.3s;
+   margin: 10px;
+   width: 100%;
+ }
+
+ .artist-list a:hover {
+   background: hotpink;
+   transform: scale(1.03);
+ }
+
+ .main-title p {
+   color: black;
+   font-size: 1.3rem;
+   margin: 0px 15px 10px 15px;
+ }
+ 
+
+
+ .btn1 {
+   display: inline-block;
+   background: blue;
+   padding: 10px 20px;
+   color: white;
+   text-decoration: none;
+   position: absolute;
+   top: 2px;
+   left: 2px;
+ }
+
+ .btn2 {
+   display: inline-block;
+   background: hotpink;
+   padding: 12px 30px;
+   color: black;
+   text-decoration: none;
+   border-radius: 999px;
+   
+ }
+
+ .btn3 {
+   display: inline-block;
+   background: hotpink;
+   color: black;
+   text-decoration: none;
+   padding: 12px 30px;
+   border-radius: 999px;
+   
+ }
+ .btn4{
+  display: inline-block;
+  background: hotpink;
+  color: black;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 12px 30px
+ }
