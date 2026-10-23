@@ -116,14 +116,12 @@ section.hero {
   object-fit: cover;
   display: block;
 }
-
- .footer {
-  margin-top: 40px;
-  padding: 20px;
+.footer {
+  margin-top: 20px !important;
+  padding: 30px;
   text-align: center;
-  opacity: 1; /* change 0.5 to 1, so you can see it */
+  opacity: 0.5;
   font-size: 0.8rem;
   letter-spacing: 0.05em;
-  position: relative; /* make sure it stays in flow */
-  z-index: 2;
+  color: white;
 }
