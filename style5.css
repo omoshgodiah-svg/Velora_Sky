@@ -109,7 +109,7 @@
   padding: 12px 30px
   
  }
-.categories {
+.btn2, .btn3, .btn4 {
   display: flex;
   gap: 15px; /* NOW gap works - because parent is flex */
   justify-content: center;
