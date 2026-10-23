@@ -113,8 +113,8 @@ footer {
 }
 .photo{
   position: absolute;
-  top: 15px;
-  left: 20px;
+  top: 30px;
+  left: 30px;
   border-radius: 50%;
   overflow: hidden;
   width: 120px;
