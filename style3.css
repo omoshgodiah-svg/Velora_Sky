@@ -27,7 +27,7 @@ section.hero {
 .hero-content h1 {
   font-family: 'Times New Roman', Georgia, serif;
   font-size: clamp(2.8rem, 8vw, 5rem);
-  letter-spacing: 0.35em;
+  letter-spacing: 0.25em;
   color: #ff8ac4;
   text-shadow: 0 0 12px rgba(255, 90, 160, 0.9), 0 0 35px rgba(255, 90, 160, 0.4);
   margin-bottom: 20px;
