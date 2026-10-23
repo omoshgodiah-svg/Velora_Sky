@@ -107,8 +107,8 @@ section.hero {
   left: 0px;
   border-radius: 50%;
   overflow: hidden;
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
 }
 .photo img{
   width: 100%;
