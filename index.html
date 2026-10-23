@@ -34,5 +34,12 @@
         </footer>
         </div>
 </body>
-
 </html>
+<script>
+  // Force reload if page comes from back-button cache
+  window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {
+      window.location.reload();
+    }
+  });
+</script>
