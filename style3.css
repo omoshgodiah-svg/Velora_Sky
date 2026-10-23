@@ -113,8 +113,8 @@ section.hero {
 }
 .photo{
   position: absolute;
-  top: 15px;
-  left: 20px;
+  top: 0px;
+  left: 0px;
   border-radius: 50%;
   overflow: hidden;
   width: 100px;
