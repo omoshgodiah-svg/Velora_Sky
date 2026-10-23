@@ -125,11 +125,29 @@ section.hero {
   letter-spacing: 0.05em;
   color: white;
 }
-<script>
-  // Force reload if page comes from back-button cache
-  window.addEventListener('pageshow', function(event) {
-    if (event.persisted) {
-      window.location.reload();
-    }
+function showSection(sectionName) {
+  // hide all sections
+  document.querySelectorAll('.section').forEach(sec => {
+    sec.style.display = 'none';
   });
-</script>
+  
+  // show the one you want
+  const target = document.getElementById(sectionName);
+  target.style.display = 'block';
+
+  // If you returned to home, restart the Empress animation
+  if (sectionName === 'home') {
+    restartHomeAnimation();
+  }
+}
+
+function restartHomeAnimation() {
+  const title = document.querySelector('.empress-title'); // change to your class
+  title.innerHTML = ''; // clear old text
+  // then call your typing function again
+  typeWriterEffect("EMPRESS VELORA_SKY"); // whatever your function is called
+}
+
+// Use like this:
+document.querySelector('.realm-btn').onclick = () => showSection('realm');
+document.querySelector('.home-btn').onclick = () => showSection('home');
