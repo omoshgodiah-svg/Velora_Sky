@@ -80,14 +80,14 @@
                     let users = JSON.parse(localStorage.getItem('users') || '[]');
                     if (users.find(u => u.email === email)) {
                         alert('Account already exists, please login');
-                        window.location.href = 'index.html';
+                        window.location.href = 'Val.html';
                         return;
                     }
 
                     users.push({ email, pass });
                     localStorage.setItem('users', JSON.stringify(users));
                     alert('Account created! Now login');
-                    window.location.href = 'index.html';
+                    window.location.href = 'Val.html';
                 });
             }
 
