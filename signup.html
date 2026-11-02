@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VAL</title>
+  <link rel="stylesheet" href="style11.css">
+  <link rel="icon" href="val.jpg">
+</head>
+
+<body>
+  <div class="signup-container">
+    <h1>Sign Up</h1>
+    <form id="signupForm">
+      <div class="input-group">
+        <div class="input-group">
+          <input type="email" id="signEmail" placeholder=" " required>
+          <label>Email</label>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="signPass" placeholder=" " required>
+          <label>Password</label>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="signPass2" placeholder=" " required>
+          <label>Confirm Password</label>
+        </div>
+        <button type="submit">SIGN UP</button>
+        <p>Already have account? <a href="index2.html">Login</a></p>
+    </form>
+  </div>
+
+  <script>
+// SIGN UP
+document.getElementById('signupForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = document.getElementById('signEmail').value.trim().toLowerCase();
+  const pass = document.getElementById('signPass').value;
+  const pass2 = document.getElementById('signPass2').value;
+
+  // 8 chars, 1 caps, 1 small, 1 number, 1 symbol
+  const strongPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+  if (!strongPass.test(pass)) {
+    alert('Password must be 8+ chars, 1 CAPITAL, 1 small, 1 number, 1 symbol. Example: Velora@123');
+    return;
+  }
+
+  if (pass !== pass2) { alert('Passwords dont match'); return; }
+
+  let users = JSON.parse(localStorage.getItem('users') || '[]');
+  
+  if (users.find(u => u.email === email)) { 
+    alert('Account exists, please login'); 
+    window.location.href = 'index2.html'; 
+    return; 
+  }
+
+  users.push({ email, pass });
+  localStorage.setItem('users', JSON.stringify(users));
+  alert('Account created! Now login');
+  window.location.href = 'index2.html';
+});
+</script>
+
+</body>
+
+</html>

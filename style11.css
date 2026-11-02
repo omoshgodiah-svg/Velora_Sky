@@ -1,0 +1,114 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background:#1c1c1c;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.signup-container{
+  width:100%;
+  max-width:400px;
+  padding:40px;
+}
+
+.signup-container h1{
+  color:white;
+  font-size:32px;
+  font-weight:400;
+  margin-bottom:30px;
+  text-align:center;
+}
+
+.input-group{
+  margin-bottom:18px;
+}
+
+.input-group input{
+  width:100%;
+  padding:15px;
+  border:1px solid #555;
+  border-radius:8px;
+  background:transparent;
+  color:white;
+  outline:none;
+  font-size:14px;
+}
+
+.input-group input:focus{
+  border-color:#ff8a54;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  background:#ff8a54;
+  border:none;
+  border-radius:25px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+button:hover{
+  background:#ff9a6b;
+}
+
+.signup-container p{
+  text-align:center;
+  margin-top:20px;
+  color:#aaa;
+  font-size:14px;
+}
+
+.signup-container p a{
+  color:#ff8a54;
+  text-decoration:none;
+  font-weight:bold;
+}
+.input-group{
+  position:relative;
+  margin-bottom:20px;
+}
+
+.input-group input{
+  width:100%;
+  padding:15px;
+  border:1px solid #555;
+  border-radius:8px;
+  background:transparent;
+  color:white;
+  outline:none;
+}
+
+.input-group label{
+  position:absolute;
+  left:15px;
+  top:15px;
+  color:#888;
+  font-size:14px;
+  pointer-events:none;
+  transition:0.2s ease;
+  background:#1c1c1c;
+  padding:0 5px;
+}
+
+/* When you click - it goes up like your screenshot */
+.input-group input:focus{
+  border-color:#ff8a54;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label{
+  top:-8px;
+  left:12px;
+  font-size:12px;
+  color:#ff8a54;
+}

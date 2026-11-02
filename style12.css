@@ -1,0 +1,135 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+.login{
+  display:flex;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+}
+
+/* LEFT IMAGE - 55% */
+.login-left{
+  width:55%;
+  height:100vh;
+  overflow:hidden;
+}
+
+.login-left img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* RIGHT LOGIN - 45% DARK */
+.login-right{
+  width:45%;
+  height:100vh;
+  background:#1c1c1c !important;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:40px;
+}
+
+.login-right h1{
+  color:#ffffff !important;
+  font-size:32px;
+  font-weight:400;
+  margin-bottom:30px;
+}
+
+.login-box{
+  width:100%;
+  max-width:340px;
+}
+
+.input-group{
+  position:relative;
+  width:100%;
+  margin-bottom:20px;
+}
+
+.input-group input{
+  width:100%;
+  padding:14px 15px;
+  background:transparent;
+  border:1px solid #555;
+  border-radius:8px;
+  color:white;
+  outline:none;
+}
+
+.input-group input:focus{
+  border-color:#ff8a54;
+}
+
+.input-group label{
+  position:absolute;
+  left:15px;
+  top:14px;
+  color:#888;
+  pointer-events:none;
+  transition:0.2s;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label{
+  top:-8px;
+  left:12px;
+  font-size:12px;
+  background:#1c1c1c;
+  padding:0 5px;
+  color:#ff8a54;
+}
+
+.forgot{
+  display:block;
+  text-align:right;
+  font-size:13px;
+  color:#aaa;
+  margin:-10px 0 20px;
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+.login-box button{
+  width:100%;
+  padding:14px;
+  background:#ff8a54;
+  border:none;
+  border-radius:25px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.login-box button:hover{
+  background:#ff9a6b;
+}
+
+.login-box p{
+  text-align:center;
+  margin-top:20px;
+  color:#aaa;
+  font-size:14px;
+}
+
+.login-box p span{
+  color:#ff8a54;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* Mobile fix - not squeezed */
+@media(max-width:768px){
+  .login{flex-direction:column;}
+  .login-left{width:100%; height:40vh;}
+  .login-right{width:100%; height:60vh;}
+}

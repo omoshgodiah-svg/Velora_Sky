@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAL</title>
+    <link rel="stylesheet" href="style12.css">
+
+</head>
+
+<body>
+
+    <body>
+        <section class="login">
+            <div class="login-left">
+                <img src="Empress2.jpeg">
+            </div>
+
+
+                <div class="login-right">
+                    <div class="login-box">
+                        <h1 style="color:white;">Login</h1>
+                        <form id="loginForm">
+                            <div class="input-group">
+                                <input type="email" id="loginEmail" required placeholder=" ">
+                                <label>Email</label>
+                            </div>
+
+                            <div class="input-group">
+                                <input type="password" id="loginPass" required placeholder=" ">
+                                <label>Password</label>
+                            </div>
+
+                            <div
+                                style="display:flex; justify-content:space-between; align-items:center; margin:12px 0 20px 0;">
+                                <div style="display:flex; align-items:center; gap:6px;">
+                                    <input type="checkbox" id="rememberMe"
+                                        style="width:16px !important; height:16px !important; margin:0;">
+                                    <label for="rememberMe"
+                                        style="position:static !important; background:none !important; font-size:14px; color:#fff; pointer-events:auto;">Remember
+                                        me</label>
+                                </div>
+                                <a href="#" id="forgotLink" style="font-size:14px; color:#aaa;">Forgot password?</a>
+                            </div>
+
+                            <button type="submit" class="login-btn">LOG IN</button>
+
+                            <p style="text-align:center; margin-top:15px;">Dont have an account yet? <a
+                                    href="signup.html" style="color:#ff8c42; text-decoration:none;">Sign Up</a></p>
+                        </form>
+                    </div>
+                </div>
+
+
+        </section>
+        <script>
+            // SIGN UP
+            const signupForm = document.getElementById('signupForm');
+            if (signupForm) {
+                signupForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = document.getElementById('signEmail').value.trim().toLowerCase();
+                    const pass = document.getElementById('signPass').value;
+                    const pass2 = document.getElementById('signPass2').value;
+
+                    // --- PASSWORD RULE: 8 chars, 1 caps, 1 small, 1 number, 1 symbol ---
+                    const strongPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+                    if (!strongPass.test(pass)) {
+                        alert('Password must be:\n- 8+ characters\n- At least 1 CAPITAL letter\n- At least 1 small letter\n- At least 1 number\n- At least 1 symbol (@$!%*?&)\n\nExample: Velora@123');
+                        return;
+                    }
+
+                    if (pass !== pass2) {
+                        alert('Passwords dont match');
+                        return;
+                    }
+
+                    let users = JSON.parse(localStorage.getItem('users') || '[]');
+                    if (users.find(u => u.email === email)) {
+                        alert('Account already exists, please login');
+                        window.location.href = 'index.html';
+                        return;
+                    }
+
+                    users.push({ email, pass });
+                    localStorage.setItem('users', JSON.stringify(users));
+                    alert('Account created! Now login');
+                    window.location.href = 'index.html';
+                });
+            }
+
+            // LOGIN
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                // Auto-fill if remembered before
+                const rememberedEmail = localStorage.getItem('rememberedEmail');
+                if (rememberedEmail) {
+                    document.getElementById('loginEmail').value = rememberedEmail;
+                    document.getElementById('rememberMe').checked = true;
+                }
+
+                // Auto-login if already logged in
+                if (localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser')) {
+                    window.location.href = 'val.html';
+                }
+
+                loginForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+                    const pass = document.getElementById('loginPass').value;
+                    const remember = document.getElementById('rememberMe').checked;
+
+                    let users = JSON.parse(localStorage.getItem('users') || '[]');
+                    const found = users.find(u => u.email === email && u.pass === pass);
+
+                    if (!found) {
+                        alert('No account found or wrong password. Please Sign Up first.');
+                        return;
+                    }
+
+                    // Remember Me Logic
+                    if (remember) {
+                        localStorage.setItem('currentUser', email); // stays even after closing browser
+                        localStorage.setItem('rememberedEmail', email); // for auto-fill next time
+                    } else {
+                        sessionStorage.setItem('currentUser', email); // clears when browser closed
+                        localStorage.removeItem('rememberedEmail');
+                    }
+
+                    window.location.href = 'val.html';
+                });
+            }
+
+            // FORGOT PASSWORD
+            const forgotLink = document.getElementById('forgotLink');
+            if (forgotLink) {
+                forgotLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const email = prompt('Enter your email to reset password:');
+                    if (!email) return;
+                    let users = JSON.parse(localStorage.getItem('users') || '[]');
+                    const user = users.find(u => u.email === email);
+                    if (!user) { alert('No account with that email. Please Sign Up'); return; }
+                    const newPass = prompt('Enter new password:');
+                    if (newPass) {
+                        user.pass = newPass;
+                        localStorage.setItem('users', JSON.stringify(users));
+                        alert('Password changed! Now login with new password');
+                    }
+                });
+            }
+        </script>
+    </body>
+
+</html>
